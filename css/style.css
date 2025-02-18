@@ -250,6 +250,9 @@ body.border-dark .main-content:after{
 	height:100%;
 	width:100%;
 	background:#303F9F;
+	background-size: cover;
+	background-image: url(../img/purpleBobaBg.jpg);
+	background-position: 50% 30%;
 	opacity:.8;
 	z-index:-1;
 }
@@ -261,6 +264,7 @@ body.border-dark .main-content:after{
 	margin:0;
 	color:#FFF;
 	text-transform:uppercase;
+	-webkit-text-stroke: 4px #5160c2;
 	font-weight:900;
 	letter-spacing:8px;
 	font-size:78px;
