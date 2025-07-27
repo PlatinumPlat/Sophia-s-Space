@@ -69,8 +69,9 @@ h1, h2, h3, h4, h5, h6{
 ::-webkit-scrollbar-thumb:hover{
 	background:#A0A0A0;
 }
-img{
-	max-width:100%;
+img {
+	max-width: 100%;
+	border-radius: 3px;
 }
 
 
