@@ -22,22 +22,29 @@
 		$data['error'] = 'The message field is required!';
 	}else{
 		
-		$formcontent="From: $name\nSubject: $subject\nEmail: $email\nMessage: $message";
-		
-		
-		//Place your Email Here
-		$recipient = "twinsophiapu@gmail.com";
-		
-		$mailheader = "From: $email \r\n";
-		
-		if( mail($recipient, $name, $formcontent, $mailheader) == false ){
-			$data['error'] = 'Sorry, an error occured!';
-		}else{
+		$file = 'messages.json';
+
+		$json_data = file_get_contents($file);
+		$messages = json_decode($json_data, true);
+		if (!is_array($messages)) {
+			$messages = [];
+		}
+
+		$messages[] = [
+			'name' => $name,
+			'email' => $email,
+			'subject' => $subject,
+			'message' => $message,
+			'submitted_at' => date('Y-m-d H:i:s')
+		];
+
+		if (file_put_contents($file, json_encode($messages, JSON_PRETTY_PRINT))) {
 			$data['error'] = false;
+		} else {
+			$data['error'] = 'Your message could not be received. Contact twinsophiapu@gmail.com about this issue.';
 		}
 	
 	}
 	
 	echo json_encode($data);
-	
 ?>
