@@ -621,6 +621,8 @@ body.section-switching.up .animation-block{
 .service > .content{
 	position:relative;
 	z-index:5;
+	max-height: 900px;
+	overflow: auto;
 }
 .service > .content > h4{
 	color:#202020;
@@ -633,6 +635,7 @@ body.section-switching.up .animation-block{
 	color:rgba(0,0,0,.4);
 	margin:0;
 }
+
 .skills-block .section-header{
 	margin-bottom:80px;
 }
