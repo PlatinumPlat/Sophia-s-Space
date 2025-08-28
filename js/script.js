@@ -182,25 +182,54 @@ $(function () {
 });
 
 $(function () {
-	$('#send-email').on('click', function () {
-		const name = encodeURIComponent($('input[name="name"]').val());
-		const email = encodeURIComponent($('input[name="email"]').val());
-		const subject = encodeURIComponent($('input[name="subject"]').val());
-		const message = encodeURIComponent($('textarea[name="message"]').val());
-		console.log("name,"+ name+",");
-		if (name === "") {
-			console.log("Name field is empty!");
-		}
-		if (name === "" || email === "" || subject === "" || message === "") {
-			$('#contact-form-result').html(
-				"<div class='alert alert-danger'>Please fill in all the fields before sending.</div>"
-			);
-		} else {
-			window.location.href = `mailto:twinsophiapu@gmail.com?subject=${subject}&body=Name:%20${name}%0AEmail:%20${email}%0A%0A${message}`;
+	$('#contact-form').on('submit', async function (e) {
+		e.preventDefault();
+		const form = $(this).closest('form')[0];
+		const data = {
+			name: form.name.value,
+			email: form.email.value,
+			message: form.message.value,
+			_subject: form._subject.value,
+			_captcha: false,
+			_honey: form._honey.value,
+			_template: 'box'
+		};
 
+		try {
+			const response = await fetch("https://formsubmit.co/ajax/8917403afb147ca1a68e36167f1214df", {
+				method: "POST",
+				headers: {
+					'Content-Type' : 'application/json',
+					'Accept' : 'application/json'
+				},
+				body: JSON.stringify(data)
+			});
+
+			const result = await response.json();
+			if (result.success || response.ok) {
+				form.reset();
+				$('#contact-form-result').html(
+					"<div class='alert alert-success'>Success! Hang tight, I'll reply to your email soon!</div>"
+				);
+
+				setTimeout(() => {
+					$('#contact-form-result').fadeOut('slow', function() {
+						$(this).html('').show();
+					});
+				}, 5000);
+			} else {
+				throw new Error("Form submission failed");
+			}
+		} catch (err) {
 			$('#contact-form-result').html(
-				"<div class='alert alert-success'>Success!</div>"
+				"<div class='alert alert-danger'>An error occured. Please try again later!</div>"
 			);
+
+			setTimeout(() => {
+				$('#contact-form-result').fadeOut('slow', function () {
+					$(this).html('').show();
+				});
+			}, 5000);
 		}
 	});
 });
