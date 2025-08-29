@@ -233,3 +233,68 @@ $(function () {
 		}
 	});
 });
+
+const box = document.getElementById('commentboxesa');
+const commentN = document.getElementById('commentcount');
+function loadComments() {
+	box.innerHTML="";
+	const commentboxes = JSON.parse(localStorage.getItem("commentboxes")) || [];
+	commentboxes.forEach((comment, index) => {
+		const commentbox = document.createElement("div");
+		commentbox.innerHTML=`
+			<div class="newComment">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton" onclick="deleteComment(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box.appendChild(commentbox);
+	});
+}
+
+document.getElementById("publishcomment").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username").value;
+	let message = document.getElementById("usermessage").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img="/img/Anonymous User.png";
+	} else {
+		img="/img/User.png";
+	}
+
+	const commentboxes= JSON.parse(localStorage.getItem("commentboxes")) || [];
+	commentboxes.push({name, message, date, img})
+	localStorage.setItem("commentboxes", JSON.stringify(commentboxes));
+
+	document.getElementById("username").value = "Anonymous";
+	document.getElementById("usermessage").value ="";
+	loadComments();
+	add(1);
+})
+
+function deleteComment(index) {
+	const commentboxes = JSON.parse(localStorage.getItem("commentboxes")) || [];
+	commentboxes.splice(index, 1);
+	localStorage.setItem("commentboxes", JSON.stringify(commentboxes));
+	loadComments();
+	add(-1);
+}
+
+function add(n) {
+	commentN.textContent=Number(commentN.textContent)+n;
+	localStorage.setItem("commentcount", commentN.textContent);
+}
+
+loadComments();
+
+const savedCount=Number(localStorage.getItem("commentcount")) || 0;
+document.getElementById("commentcount").textContent = savedCount;

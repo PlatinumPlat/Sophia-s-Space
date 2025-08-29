@@ -76,6 +76,15 @@ img {
 	border-radius: 3px;
 }
 
+.commentimg{
+	border: none;
+	width: 50px;
+	height: 50px;
+	margin-right: 20px;
+	object-fit: cover;
+	object-position: center;
+}
+
 
 /*=======================================================
 	Menu
@@ -773,6 +782,115 @@ body.section-switching.up .animation-block{
 	text-transform:uppercase;
 	letter-spacing:2px;
 	color:rgba(0,0,0,.4);
+}
+
+.commentcontainer {
+	padding: 20px;
+	background:#b5bde9;
+	box-shadow: 0 0 3px #303F9F;	
+}
+
+.commenthead {
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+
+.commenttext {
+	margin: 10px 0;
+	font-size: 0.9em;
+}
+
+
+.usercomment {
+	padding: 10px;
+}
+
+.commentc {
+	height: 40px;
+	width: 100px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.commentboxes {
+	display: flex;
+	justify-content: space-around;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.commentc {
+	background-color: #f6f6f6;
+	width:120px;
+	border-radius: 8px;
+}
+
+
+.commentcontent {
+	width: 100%;
+}
+
+.commentcontent > input {
+	border-bottom: 2px solid #303F9F;
+}
+
+textarea {
+	border: 2px solid #303F9F;
+}
+
+
+.user{
+	border: none;
+	outline: none;
+	margin: 5px 0;
+	padding: 10px;
+}
+
+.commentinput > input {
+	border: none;
+	padding: 10px;
+	outline: none;
+	border-bottom: 2px solid #303F9F;
+	margin-bottom: 10px;
+	width: 95%;
+}
+
+.commentbuttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.commentbuttons button {
+	padding: 5px 10px;
+	background:#b5bde9;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.newComment {
+	display: flex;
+	margin-bottom: 30px;
+	justify-self: left;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.delbutton {
+	margin-left: auto;
+	border-radius: 5px;
+	border: 2px solid #303F9F;
+}
+
+.newComment p {
+	margin: 10px 0;
+	font-size: 0.9em;
 }
 
 
