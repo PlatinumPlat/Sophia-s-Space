@@ -266,9 +266,9 @@ document.getElementById("publishcomment").addEventListener("click", (e) => {
 	let date = new Date().toLocaleString();
 	let img;
 	if (name.toLowerCase() === "anonymous") {
-		img="/img/Anonymous User.png";
+		img="img/AnonymousUser.png";
 	} else {
-		img="/img/User.png";
+		img="img/User.png";
 	}
 
 	const commentboxes= JSON.parse(localStorage.getItem("commentboxes")) || [];
