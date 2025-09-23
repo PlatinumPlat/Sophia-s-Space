@@ -98,7 +98,7 @@ $(function () {
 	/*=========================================================================
 		Contact Form
 	=========================================================================*/
-	
+
 	// function isJSON(val) {
 	// 	var str = val.replace(/\\./g, '@').replace(/"[^"\\\n\r]*"/g, '');
 	// 	return (/^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/).test(str);
@@ -180,10 +180,13 @@ $(function () {
 	// });
 
 });
-
+const button = document.getElementById('send-email');
+const spinner = document.getElementById('spinner');
 $(function () {
 	$('#contact-form').on('submit', async function (e) {
 		e.preventDefault();
+		spinner.classList.remove('hidden');
+		button.disabled = true;
 		const form = $(this).closest('form')[0];
 		const data = {
 			name: form.name.value,
@@ -199,8 +202,8 @@ $(function () {
 			const response = await fetch("https://formsubmit.co/ajax/8917403afb147ca1a68e36167f1214df", {
 				method: "POST",
 				headers: {
-					'Content-Type' : 'application/json',
-					'Accept' : 'application/json'
+					'Content-Type': 'application/json',
+					'Accept': 'application/json'
 				},
 				body: JSON.stringify(data)
 			});
@@ -213,7 +216,7 @@ $(function () {
 				);
 
 				setTimeout(() => {
-					$('#contact-form-result').fadeOut('slow', function() {
+					$('#contact-form-result').fadeOut('slow', function () {
 						$(this).html('').show();
 					});
 				}, 5000);
@@ -231,17 +234,20 @@ $(function () {
 				});
 			}, 5000);
 		}
+
+		spinner.classList.add('hidden');
+		button.disabled = false;
 	});
 });
 
 const box = document.getElementById('commentboxesa');
 const commentN = document.getElementById('commentcount');
 function loadComments() {
-	box.innerHTML="";
+	box.innerHTML = "";
 	const commentboxes = JSON.parse(localStorage.getItem("commentboxes")) || [];
 	commentboxes.forEach((comment, index) => {
 		const commentbox = document.createElement("div");
-		commentbox.innerHTML=`
+		commentbox.innerHTML = `
 			<div class="newComment">
 			<img class="commentimg" src="${comment.img}">
 			<div>
@@ -255,9 +261,9 @@ function loadComments() {
 		box.appendChild(commentbox);
 	});
 }
-
 document.getElementById("publishcomment").addEventListener("click", (e) => {
 	e.preventDefault();
+	button.disabled = true;
 	let name = document.getElementById("username").value;
 	let message = document.getElementById("usermessage").value;
 	if (!message) {
@@ -266,17 +272,17 @@ document.getElementById("publishcomment").addEventListener("click", (e) => {
 	let date = new Date().toLocaleString();
 	let img;
 	if (name.toLowerCase() === "anonymous") {
-		img="img/AnonymousUser.png";
+		img = "img/AnonymousUser.png";
 	} else {
-		img="img/User.png";
+		img = "img/User.png";
 	}
 
-	const commentboxes= JSON.parse(localStorage.getItem("commentboxes")) || [];
-	commentboxes.push({name, message, date, img})
+	const commentboxes = JSON.parse(localStorage.getItem("commentboxes")) || [];
+	commentboxes.push({ name, message, date, img })
 	localStorage.setItem("commentboxes", JSON.stringify(commentboxes));
 
 	document.getElementById("username").value = "Anonymous";
-	document.getElementById("usermessage").value ="";
+	document.getElementById("usermessage").value = "";
 	loadComments();
 	add(1);
 })
@@ -290,11 +296,11 @@ function deleteComment(index) {
 }
 
 function add(n) {
-	commentN.textContent=Number(commentN.textContent)+n;
+	commentN.textContent = Number(commentN.textContent) + n;
 	localStorage.setItem("commentcount", commentN.textContent);
 }
 
 loadComments();
 
-const savedCount=Number(localStorage.getItem("commentcount")) || 0;
+const savedCount = Number(localStorage.getItem("commentcount")) || 0;
 document.getElementById("commentcount").textContent = savedCount;

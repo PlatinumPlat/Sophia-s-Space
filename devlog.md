@@ -1,3 +1,4 @@
+# 1
 Hello! I just implemented a few features, updates, and elevated my website's interactivity:
 
 In the #about section, I added interactive images of the programming languages I am comfortable using to enhance user interactivity.
@@ -8,5 +9,16 @@ In my #blog, I added an easter egg that rewards people who have visited all the 
 
 In the #about section, I also added a NOW page to showcase what I am doing/learning/interested in currently regarding STEM, Blogging, and Athletics.
 
-I attached a colourful image showing all of my changes!
+In the #projects page, I fixed a bug as one of my images which wasn't showing on the website.
 
+I have attached a colourful image showing all of my changes!
+
+# 2
+
+Hey! Today I made a couple of small updates :)
+
+In the #about section, I added my languages (not programming languages, spoken languages) and details on my fluency. I also added a skill bar that showed the percentage of mastery for each language in order to contribute to user interactivity.
+
+In the #contact section, I added a tiny spinner to further improve user interactivity! I used html, css, and javascript to animate it.
+
+Attached is proof of my updates!
