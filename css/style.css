@@ -84,13 +84,24 @@ img {
 	padding: 5px;
 }
 
-.commentimg{
+.commentimg, .commentimg2, .commentimg3 {
 	border: none;
 	width: 50px;
 	height: 50px;
 	margin-right: 20px;
 	object-fit: cover;
 	object-position: center;
+}
+
+pre {
+	border: 2px solid #303F9F;
+	border-radius: 5px;
+	padding: 10px;
+	background-color: #f9f9f9;
+	overflow: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+	max-width: 90%;
 }
 
 
@@ -792,55 +803,58 @@ body.section-switching.up .animation-block{
 	color:rgba(0,0,0,.4);
 }
 
-.commentcontainer {
+.commentcontainer, .commentcontainer2, .commentcontainer3 {
 	padding: 20px;
 	background:#b5bde9;
 	box-shadow: 0 0 3px #303F9F;	
 }
 
-.commenthead {
+.commenthead,
+.commenthead2,
+.commenthead3 {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
 
-.commenttext {
+.commenttext, .commenttext2, .commenttext3 {
 	margin: 10px 0;
 	font-size: 0.9em;
 }
 
 
-.usercomment {
+.usercomment, .usercomment2,
+.usercomment3 {
 	padding: 10px;
 }
 
-.commentc {
+.commentc, .commentc2,
+.commentc3 {
 	height: 40px;
 	width: 100px;
 	align-items: center;
 	display: flex;
 	justify-content: center;
+	background-color: #f6f6f6;
+	width: 120px;
+	border-radius: 8px;
 }
 
-.commentboxes {
+.commentboxes, .commentboxes2,
+.commentboxes3 {
 	display: flex;
 	justify-content: space-around;
 	background-color: #f6f6f6;
 	border-radius: 5px;
 	padding: 20px;
-}
-
-.commentc {
-	background-color: #f6f6f6;
-	width:120px;
-	border-radius: 8px;
-}
+}	
 
 
-.commentcontent {
+.commentcontent, .commentcontent2,
+.commentcontent3 {
 	width: 100%;
 }
 
-.commentcontent > input {
+.commentcontent > input, .commentcontent2 > input, .commentcontent3>input {
 	border-bottom: 2px solid #303F9F;
 }
 
@@ -849,14 +863,16 @@ textarea {
 }
 
 
-.user{
+.user, .user2,
+.user3{
 	border: none;
 	outline: none;
 	margin: 5px 0;
 	padding: 10px;
 }
 
-.commentinput > input {
+.commentinput > input, .commentinput2 > input,
+.commentinput3>input {
 	border: none;
 	padding: 10px;
 	outline: none;
@@ -865,13 +881,15 @@ textarea {
 	width: 95%;
 }
 
-.commentbuttons {
+.commentbuttons, .commentbuttons2,
+.commentbuttons3 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.commentbuttons button {
+.commentbuttons button, .commentbuttons2 button,
+.commentbuttons3 button {
 	padding: 5px 10px;
 	background:#b5bde9;
 	text-transform: uppercase;
@@ -881,7 +899,8 @@ textarea {
 	cursor: pointer;
 }
 
-.newComment {
+.newComment, .newComment2,
+.newComment3 {
 	display: flex;
 	margin-bottom: 30px;
 	justify-self: left;
@@ -890,13 +909,15 @@ textarea {
 	padding: 20px;
 }
 
-.delbutton {
+.delbutton, .delbutton2,
+.delbutton3{
 	margin-left: auto;
 	border-radius: 5px;
 	border: 2px solid #303F9F;
 }
 
-.newComment p {
+.newComment p, .newComment2 p,
+.newComment3 p{
 	margin: 10px 0;
 	font-size: 0.9em;
 }

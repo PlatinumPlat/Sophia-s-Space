@@ -263,7 +263,6 @@ function loadComments() {
 }
 document.getElementById("publishcomment").addEventListener("click", (e) => {
 	e.preventDefault();
-	button.disabled = true;
 	let name = document.getElementById("username").value;
 	let message = document.getElementById("usermessage").value;
 	if (!message) {
@@ -302,5 +301,133 @@ function add(n) {
 
 loadComments();
 
-const savedCount = Number(localStorage.getItem("commentcount")) || 0;
+let savedCount = Number(localStorage.getItem("commentcount")) || 0;
 document.getElementById("commentcount").textContent = savedCount;
+
+const box2 = document.getElementById('commentboxesa2');
+const commentN2 = document.getElementById('commentcount2');
+function loadComments2() {
+	box2.innerHTML = "";
+	const commentboxes2 = JSON.parse(localStorage.getItem("commentboxes2")) || [];
+	commentboxes2.forEach((comment, index) => {
+		const commentbox2 = document.createElement("div");
+		commentbox2.innerHTML = `
+			<div class="newComment2">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton2" onclick="deleteComment2(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box2.appendChild(commentbox2);
+	});
+}
+document.getElementById("publishcomment2").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username2").value;
+	let message = document.getElementById("usermessage2").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes2 = JSON.parse(localStorage.getItem("commentboxes2")) || [];
+	commentboxes2.push({ name, message, date, img })
+	localStorage.setItem("commentboxes2", JSON.stringify(commentboxes2));
+
+	document.getElementById("username2").value = "Anonymous";
+	document.getElementById("usermessage2").value = "";
+	loadComments2();
+	add2(1);
+})
+
+function deleteComment2(index) {
+	const commentboxes2 = JSON.parse(localStorage.getItem("commentboxes2")) || [];
+	commentboxes2.splice(index, 1);
+	localStorage.setItem("commentboxes2", JSON.stringify(commentboxes2));
+	loadComments2();
+	add2(-1);
+}
+
+function add2(n) {
+	commentN2.textContent = Number(commentN2.textContent) + n;
+	localStorage.setItem("commentcount2", commentN2.textContent);
+}
+
+loadComments2();
+
+let savedCount2 = Number(localStorage.getItem("commentcount2")) || 0;
+document.getElementById("commentcount2").textContent = savedCount2;
+
+const box3 = document.getElementById('commentboxesa3');
+const commentN3 = document.getElementById('commentcount3');
+function loadComments3() {
+	box3.innerHTML = "";
+	const commentboxes3 = JSON.parse(localStorage.getItem("commentboxes3")) || [];
+	commentboxes3.forEach((comment, index) => {
+		const commentbox3 = document.createElement("div");
+		commentbox3.innerHTML = `
+			<div class="newComment3">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton3" onclick="deleteComment3(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box3.appendChild(commentbox3);
+	});
+}
+document.getElementById("publishcomment3").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username3").value;
+	let message = document.getElementById("usermessage3").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes3 = JSON.parse(localStorage.getItem("commentboxes3")) || [];
+	commentboxes3.push({ name, message, date, img })
+	localStorage.setItem("commentboxes3", JSON.stringify(commentboxes3));
+
+	document.getElementById("username3").value = "Anonymous";
+	document.getElementById("usermessage3").value = "";
+	loadComments3();
+	add3(1);
+})
+
+function deleteComment3(index) {
+	const commentboxes3 = JSON.parse(localStorage.getItem("commentboxes3")) || [];
+	commentboxes3.splice(index, 1);
+	localStorage.setItem("commentboxes3", JSON.stringify(commentboxes3));
+	loadComments3();
+	add3(-1);
+}
+
+function add3(n) {
+	commentN3.textContent = Number(commentN3.textContent) + n;
+	localStorage.setItem("commentcount3", commentN3.textContent);
+}
+
+loadComments3();
+
+let savedCount3 = Number(localStorage.getItem("commentcount3")) || 0;
+document.getElementById("commentcount3").textContent = savedCount3;
