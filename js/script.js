@@ -431,3 +431,259 @@ loadComments3();
 
 let savedCount3 = Number(localStorage.getItem("commentcount3")) || 0;
 document.getElementById("commentcount3").textContent = savedCount3;
+
+const box4 = document.getElementById('commentboxesa4');
+const commentN4 = document.getElementById('commentcount4');
+function loadComments4() {
+	box4.innerHTML = "";
+	const commentboxes4 = JSON.parse(localStorage.getItem("commentboxes4")) || [];
+	commentboxes4.forEach((comment, index) => {
+		const commentbox4 = document.createElement("div");
+		commentbox4.innerHTML = `
+			<div class="newComment4">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton4" onclick="deleteComment4(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box4.appendChild(commentbox4);
+	});
+}
+document.getElementById("publishcomment4").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username4").value;
+	let message = document.getElementById("usermessage4").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes4 = JSON.parse(localStorage.getItem("commentboxes4")) || [];
+	commentboxes4.push({ name, message, date, img })
+	localStorage.setItem("commentboxes4", JSON.stringify(commentboxes4));
+
+	document.getElementById("username4").value = "Anonymous";
+	document.getElementById("usermessage4").value = "";
+	loadComments4();
+	add4(1);
+})
+
+function deleteComment4(index) {
+	const commentboxes4 = JSON.parse(localStorage.getItem("commentboxes4")) || [];
+	commentboxes4.splice(index, 1);
+	localStorage.setItem("commentboxes4", JSON.stringify(commentboxes4));
+	loadComments4();
+	add4(-1);
+}
+
+function add4(n) {
+	commentN4.textContent = Number(commentN4.textContent) + n;
+	localStorage.setItem("commentcount4", commentN4.textContent);
+}
+
+loadComments4();
+
+let savedCount4 = Number(localStorage.getItem("commentcount4")) || 0;
+document.getElementById("commentcount4").textContent = savedCount4;
+
+const box5 = document.getElementById('commentboxesa5');
+const commentN5 = document.getElementById('commentcount5');
+function loadComments5() {
+	box5.innerHTML = "";
+	const commentboxes5 = JSON.parse(localStorage.getItem("commentboxes5")) || [];
+	commentboxes5.forEach((comment, index) => {
+		const commentbox5 = document.createElement("div");
+		commentbox5.innerHTML = `
+			<div class="newComment5">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton5" onclick="deleteComment5(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box5.appendChild(commentbox5);
+	});
+}
+document.getElementById("publishcomment5").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username5").value;
+	let message = document.getElementById("usermessage5").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes5 = JSON.parse(localStorage.getItem("commentboxes5")) || [];
+	commentboxes5.push({ name, message, date, img })
+	localStorage.setItem("commentboxes5", JSON.stringify(commentboxes5));
+
+	document.getElementById("username5").value = "Anonymous";
+	document.getElementById("usermessage5").value = "";
+	loadComments5();
+	add5(1);
+})
+
+function deleteComment5(index) {
+	const commentboxes5 = JSON.parse(localStorage.getItem("commentboxes5")) || [];
+	commentboxes5.splice(index, 1);
+	localStorage.setItem("commentboxes5", JSON.stringify(commentboxes5));
+	loadComments5();
+	add5(-1);
+}
+
+function add5(n) {
+	commentN5.textContent = Number(commentN5.textContent) + n;
+	localStorage.setItem("commentcount5", commentN5.textContent);
+}
+
+loadComments5();
+
+let savedCount5 = Number(localStorage.getItem("commentcount5")) || 0;
+document.getElementById("commentcount5").textContent = savedCount5;
+
+const box6 = document.getElementById('commentboxesa6');
+const commentN6 = document.getElementById('commentcount6');
+function loadComments6() {
+	box6.innerHTML = "";
+	const commentboxes6 = JSON.parse(localStorage.getItem("commentboxes6")) || [];
+	commentboxes6.forEach((comment, index) => {
+		const commentbox6 = document.createElement("div");
+		commentbox6.innerHTML = `
+			<div class="newComment6">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton6" onclick="deleteComment6(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box6.appendChild(commentbox6);
+	});
+}
+document.getElementById("publishcomment6").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username6").value;
+	let message = document.getElementById("usermessage6").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes6 = JSON.parse(localStorage.getItem("commentboxes6")) || [];
+	commentboxes6.push({ name, message, date, img })
+	localStorage.setItem("commentboxes6", JSON.stringify(commentboxes6));
+
+	document.getElementById("username6").value = "Anonymous";
+	document.getElementById("usermessage6").value = "";
+	loadComments6();
+	add6(1);
+})
+
+function deleteComment6(index) {
+	const commentboxes6 = JSON.parse(localStorage.getItem("commentboxes6")) || [];
+	commentboxes6.splice(index, 1);
+	localStorage.setItem("commentboxes6", JSON.stringify(commentboxes6));
+	loadComments6();
+	add6(-1);
+}
+
+function add6(n) {
+	commentN6.textContent = Number(commentN6.textContent) + n;
+	localStorage.setItem("commentcount6", commentN6.textContent);
+}
+
+loadComments6();
+
+let savedCount6 = Number(localStorage.getItem("commentcount6")) || 0;
+document.getElementById("commentcount6").textContent = savedCount6;
+
+const box7 = document.getElementById('commentboxesa7');
+const commentN7 = document.getElementById('commentcount7');
+function loadComments7() {
+	box7.innerHTML = "";
+	const commentboxes7 = JSON.parse(localStorage.getItem("commentboxes7")) || [];
+	commentboxes7.forEach((comment, index) => {
+		const commentbox7 = document.createElement("div");
+		commentbox7.innerHTML = `
+			<div class="newComment7">
+			<img class="commentimg" src="${comment.img}">
+			<div>
+				<h5>${comment.name}</h5>
+				<p><pre>${comment.message}</pre></p>
+				<span class="date">${comment.date}</span>
+				<button class="delbutton7" onclick="deleteComment7(${index})">Delete</button>
+			</div>
+			</div>
+			`;
+		box7.appendChild(commentbox7);
+	});
+}
+document.getElementById("publishcomment7").addEventListener("click", (e) => {
+	e.preventDefault();
+	let name = document.getElementById("username7").value;
+	let message = document.getElementById("usermessage7").value;
+	if (!message) {
+		return;
+	}
+	let date = new Date().toLocaleString();
+	let img;
+	if (name.toLowerCase() === "anonymous") {
+		img = "img/AnonymousUser.png";
+	} else {
+		img = "img/User.png";
+	}
+
+	const commentboxes7 = JSON.parse(localStorage.getItem("commentboxes7")) || [];
+	commentboxes7.push({ name, message, date, img })
+	localStorage.setItem("commentboxes7", JSON.stringify(commentboxes7));
+
+	document.getElementById("username7").value = "Anonymous";
+	document.getElementById("usermessage7").value = "";
+	loadComments7();
+	add7(1);
+})
+
+function deleteComment7(index) {
+	const commentboxes7 = JSON.parse(localStorage.getItem("commentboxes7")) || [];
+	commentboxes7.splice(index, 1);
+	localStorage.setItem("commentboxes7", JSON.stringify(commentboxes7));
+	loadComments7();
+	add7(-1);
+}
+
+function add7(n) {
+	commentN7.textContent = Number(commentN7.textContent) + n;
+	localStorage.setItem("commentcount7", commentN7.textContent);
+}
+
+loadComments7();
+
+let savedCount7 = Number(localStorage.getItem("commentcount7")) || 0;
+document.getElementById("commentcount7").textContent = savedCount7;

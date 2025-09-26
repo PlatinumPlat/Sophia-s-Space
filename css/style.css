@@ -84,7 +84,7 @@ img {
 	padding: 5px;
 }
 
-.commentimg, .commentimg2, .commentimg3 {
+.commentimg, .commentimg2, .commentimg3, .commentimg4, .commentimg5, .commentimg6, .commentimg7 {
 	border: none;
 	width: 50px;
 	height: 50px;
@@ -803,7 +803,9 @@ body.section-switching.up .animation-block{
 	color:rgba(0,0,0,.4);
 }
 
-.commentcontainer, .commentcontainer2, .commentcontainer3 {
+.commentcontainer, .commentcontainer2, .commentcontainer3, .commentcontainer4, .commentcontainer5,
+.commentcontainer6,
+.commentcontainer7 {
 	padding: 20px;
 	background:#b5bde9;
 	box-shadow: 0 0 3px #303F9F;	
@@ -811,24 +813,37 @@ body.section-switching.up .animation-block{
 
 .commenthead,
 .commenthead2,
-.commenthead3 {
+.commenthead3,
+.commenthead4,
+.commenthead5,
+.commenthead6,
+.commenthead7 {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
 
-.commenttext, .commenttext2, .commenttext3 {
+.commenttext, .commenttext2, .commenttext3, .commenttext4,
+.commenttext5,
+.commenttext6,
+.commenttext7 {
 	margin: 10px 0;
 	font-size: 0.9em;
 }
 
 
 .usercomment, .usercomment2,
-.usercomment3 {
+.usercomment3, .usercomment4,
+.usercomment5,
+.usercomment6,
+.usercomment7 {
 	padding: 10px;
 }
 
 .commentc, .commentc2,
-.commentc3 {
+.commentc3, .commentc4,
+.commentc5,
+.commentc6,
+.commentc7 {
 	height: 40px;
 	width: 100px;
 	align-items: center;
@@ -840,7 +855,9 @@ body.section-switching.up .animation-block{
 }
 
 .commentboxes, .commentboxes2,
-.commentboxes3 {
+.commentboxes3, .commentboxes4,
+.commentboxes5,
+.commentboxes6, .commentboxes7 {
 	display: flex;
 	justify-content: space-around;
 	background-color: #f6f6f6;
@@ -850,11 +867,17 @@ body.section-switching.up .animation-block{
 
 
 .commentcontent, .commentcontent2,
-.commentcontent3 {
+.commentcontent3, .commentcontent4,
+.commentcontent5,
+.commentcontent6,
+.commentcontent7 {
 	width: 100%;
 }
 
-.commentcontent > input, .commentcontent2 > input, .commentcontent3>input {
+.commentcontent > input, .commentcontent2 > input, .commentcontent3>input, .commentcontent4>input,
+.commentcontent5>input,
+.commentcontent6>input,
+.commentcontent7>input {
 	border-bottom: 2px solid #303F9F;
 }
 
@@ -864,7 +887,10 @@ textarea {
 
 
 .user, .user2,
-.user3{
+.user3, .user4,
+.user5,
+.user6,
+.user7{
 	border: none;
 	outline: none;
 	margin: 5px 0;
@@ -872,7 +898,10 @@ textarea {
 }
 
 .commentinput > input, .commentinput2 > input,
-.commentinput3>input {
+.commentinput3>input, .commentinput4>input,
+.commentinput5>input,
+.commentinput6>input,
+.commentinput7>input {
 	border: none;
 	padding: 10px;
 	outline: none;
@@ -882,14 +911,20 @@ textarea {
 }
 
 .commentbuttons, .commentbuttons2,
-.commentbuttons3 {
+.commentbuttons3, .commentbuttons4,
+.commentbuttons5,
+.commentbuttons6,
+.commentbuttons7 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .commentbuttons button, .commentbuttons2 button,
-.commentbuttons3 button {
+.commentbuttons3 button, .commentbuttons4 button,
+.commentbuttons5 button,
+.commentbuttons6 button,
+.commentbuttons7 button {
 	padding: 5px 10px;
 	background:#b5bde9;
 	text-transform: uppercase;
@@ -900,7 +935,10 @@ textarea {
 }
 
 .newComment, .newComment2,
-.newComment3 {
+.newComment3, .newComment4,
+.newComment5,
+.newComment6,
+.newComment7 {
 	display: flex;
 	margin-bottom: 30px;
 	justify-self: left;
@@ -910,14 +948,20 @@ textarea {
 }
 
 .delbutton, .delbutton2,
-.delbutton3{
+.delbutton3, .delbutton4,
+.delbutton5,
+.delbutton6,
+.delbutton7{
 	margin-left: auto;
 	border-radius: 5px;
 	border: 2px solid #303F9F;
 }
 
 .newComment p, .newComment2 p,
-.newComment3 p{
+.newComment3 p, .newComment4 p,
+.newComment5 p,
+.newComment6 p,
+.newComment7 p{
 	margin: 10px 0;
 	font-size: 0.9em;
 }
@@ -1297,6 +1341,17 @@ textarea {
 	font-weight:500;
 }
 
+.blog-post {
+	max-width: 900px;
+}
+
+.blogicon {
+	font-size: 50px;
+}
+
+.blogimage {
+	width: 100%;
+}
 
 /*=======================================================
 	Contact Section
